@@ -22,12 +22,9 @@ themeIcon(); theme.onclick = () => { document.body.classList.toggle('dark'); loc
 const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (!entry.isIntersecting) return; entry.target.classList.add('show'); $$('[data-count]', entry.target).forEach(count => { const total = +count.dataset.count; let value = 0; const tick = setInterval(() => { value++; count.textContent = value >= total ? `${total}+` : value; if (value >= total) clearInterval(tick); }, 65); }); $$('.skill-progress span', entry.target).forEach(bar => bar.style.width = bar.dataset.width); observer.unobserve(entry.target); }), { threshold: .15 });
 $$('.reveal').forEach(element => observer.observe(element));
 
-const words = ['Frontend Development', 'Creative Coding', 'UI Exploration'];
+const words = ['Pengembangan Tampilan Web', 'Pemrograman Kreatif', 'Eksplorasi Antarmuka'];
 const target = $('#typing'); let word = 0, character = words[0].length, deleting = false;
 setInterval(() => { target.textContent = words[word].slice(0, character); if (!deleting && character === words[word].length) deleting = true; else if (deleting && character === 0) { deleting = false; word = (word + 1) % words.length; } character += deleting ? -1 : 1; }, 110);
 
-// Tombol proyek menggunakan tautan placeholder yang bisa diganti dengan URL asli.
-$$('.project-info > div:first-child').forEach(info => { const actions = document.createElement('div'); actions.className = 'project-actions'; actions.innerHTML = '<a href="#">Demo</a><a href="#">GitHub</a><a href="#">Detail</a>'; info.append(actions); });
-
-// Validasi form kontak sebelum nantinya dihubungkan ke layanan email/backend.
-$('#contactForm').addEventListener('submit', event => { event.preventDefault(); const form = event.currentTarget, message = $('.form-message'); if (!form.checkValidity()) { message.textContent = 'Mohon lengkapi data dengan benar.'; form.reportValidity(); return; } message.textContent = 'Terima kasih! Pesan Anda siap dikirim.'; form.reset(); });
+// Validasi formulir lalu membuka WhatsApp dengan pesan yang sudah terisi.
+$('#contactForm').addEventListener('submit', event => { event.preventDefault(); const form = event.currentTarget, message = $('.form-message'); if (!form.checkValidity()) { message.textContent = 'Mohon lengkapi data dengan benar.'; form.reportValidity(); return; } const data = new FormData(form); const text = `Halo Hasna, saya ${data.get('name')}.\nEmail: ${data.get('email')}\n\nPesan:\n${data.get('message')}`; window.open(`https://wa.me/6285600474947?text=${encodeURIComponent(text)}`, '_blank', 'noopener'); message.textContent = 'WhatsApp dibuka. Silakan kirim pesan Anda.'; form.reset(); });

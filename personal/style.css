@@ -45,3 +45,68 @@ body.dark{--ink:#fff7fc;--paper:#3a263d;--warm:#4a304b;--blue:#f0a9dc;--orange:#
 .dark .bento-stat{background:linear-gradient(145deg,#4c2a50,#6b385c);border-color:rgba(255,218,239,.2)}
 .dark .bento-stat small{color:#f1cfe4}
 .dark .experience{background:linear-gradient(115deg,#513250,#815443)}
+
+/* Foto proyek: ubah atribut src pada index.html untuk mengganti gambar. */
+.project-visual:before,.project-visual:after{display:none}.project-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.48;transition:.35s}.project:hover .project-image{transform:scale(1.06)}.project-visual span{z-index:2}.project-info h3 a{color:var(--ink)}
+
+/* Tipografi yang lebih ramah dibaca untuk isi portofolio. */
+body,.logo,h1,h2,h3,.bento strong,.skill-row strong,.project-info h3,.contact-links b,.contact-form input,.contact-form textarea{font-family:'Plus Jakarta Sans',Arial,sans-serif}
+h1{font-weight:800;letter-spacing:-6px}
+.about-layout h2,.work-heading h2,.experience h2,.contact-prompt h2,.skills-heading h2{font-weight:700;letter-spacing:-3.5px}
+.hero-bottom p,.about-copy p,.work-heading p,.experience-top p,.project-info p:not(.mono){line-height:1.75}
+.project-info h3{font-weight:800;letter-spacing:-1.2px}
+.hero-title h1{font-family:'DM Serif Display',Georgia,serif;font-weight:400;line-height:.9;letter-spacing:-4px}
+.hero-title h1 i{font-weight:400}
+.canva-mark{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#00c4cc,#7d2ae8);color:#fff;font:italic 700 16px/1 'DM Serif Display',Georgia,serif}
+.bento{border-radius:14px;transition:transform .25s ease,box-shadow .25s ease}
+.bento:hover{transform:translateY(-5px);box-shadow:0 16px 30px rgba(77,42,70,.12)}
+.project-visual{border-radius:16px;box-shadow:0 14px 28px rgba(77,42,70,.15)}
+.project-image{opacity:.72}
+.project-info h3 a{transition:color .2s ease}
+.project-info h3 a:hover{color:var(--blue)}
+.tags a{transition:transform .2s ease,background .2s ease}
+.tags a:hover{background:var(--blue);transform:translateY(-3px)}
+
+/* Hero mobile: foto menjadi bagian dari alur halaman agar tidak menimpa judul. */
+@media (max-width:780px){
+  .hero{
+    display:grid;
+    grid-template-columns:1fr;
+    min-height:0;
+    padding:40px 20px 34px;
+    overflow:hidden;
+  }
+  .hero-label{grid-row:1;grid-column:1;gap:12px;font-size:8px}
+  .hero-title{grid-row:2;grid-column:1;margin-top:48px}
+  .hero-art{
+    position:relative;
+    right:auto;
+    bottom:auto;
+    grid-row:3;
+    grid-column:1;
+    justify-self:center;
+    align-self:auto;
+    width:min(280px,82vw);
+    height:auto;
+    aspect-ratio:28 / 34;
+    margin:24px 0 18px;
+    opacity:1;
+  }
+  .hero-bottom{
+    grid-row:4;
+    grid-column:1;
+    align-self:auto;
+    margin:0;
+    max-width:100%;
+  }
+  .hero-bottom p{max-width:100%}
+  .art-note{right:-4px;bottom:54px}
+}
+
+@media (max-width:420px){
+  .hero{padding-right:16px;padding-left:16px}
+  .hero-title{margin-top:40px}
+  h1{font-size:clamp(50px,16.5vw,68px);letter-spacing:-4px}
+  .hero-art{width:min(255px,84vw);margin-top:20px}
+  .hero-label span:last-child{text-align:right}
+}
