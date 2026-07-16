@@ -46,7 +46,7 @@ body.dark{--ink:#fff7fc;--paper:#3a263d;--warm:#4a304b;--blue:#f0a9dc;--orange:#
 .dark .bento-stat small{color:#f1cfe4}
 .dark .experience{background:linear-gradient(115deg,#513250,#815443)}
 
-/* Foto proyek: ubah atribut src pada index.html untuk mengganti gambar. */
+/* Foto projek: ubah atribut src pada index.html untuk mengganti gambar. */
 .project-visual:before,.project-visual:after{display:none}.project-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.48;transition:.35s}.project:hover .project-image{transform:scale(1.06)}.project-visual span{z-index:2}.project-info h3 a{color:var(--ink)}
 
 /* Tipografi yang lebih ramah dibaca untuk isi portofolio. */
